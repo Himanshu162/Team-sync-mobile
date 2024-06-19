@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   drawerIcon: {
     height: 35,
     width: 250,
-    marginRight:25
+    marginRight: 25,
   },
   darkmode: {
     flexDirection: "row",
