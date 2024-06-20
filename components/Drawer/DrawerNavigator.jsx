@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Inbox from "./Inbox";
+import FileManagerComponent from "../FileManagerComponent/FileManagerComponent";
 import {
   View,
   StyleSheet,
@@ -85,7 +85,7 @@ const DrawerNavigator = () => {
       >
         <Drawer.Screen
           name="Files"
-          component={Inbox}
+          component={FileManagerComponent}
           options={{
             title: "",
           }}
