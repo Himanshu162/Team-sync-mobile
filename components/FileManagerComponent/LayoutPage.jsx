@@ -9,10 +9,10 @@ import {
 import { AntDesign, Entypo } from "@expo/vector-icons";
 
 const files = [
-  { id: "1", name: "inner", type: "folder" },
-  { id: "2", name: "new folder", type: "folder" },
-  { id: "3", name: "fibromyalgia.pdf", type: "file" },
-  { id: "4", name: "farmer protest 1.txt", type: "file" },
+  { id: "1", name: "New Folder", type: "folder" },
+  { id: "2", name: "New Folder 1", type: "folder" },
+  { id: "3", name: "Fibromyalgia.pdf", type: "file" },
+  { id: "4", name: "Farmer protest 1.txt", type: "file" },
 ];
 
 const LayoutPage = () => {
@@ -24,7 +24,7 @@ const LayoutPage = () => {
           {isFolder ? (
             <AntDesign name="folder1" size={24} color="blue" />
           ) : (
-            <Entypo name="document" size={24} color="black" />
+            <Entypo name="document" size={24} color="red" />
           )}
         </View>
         <Text style={styles.itemText}>{item.name}</Text>
