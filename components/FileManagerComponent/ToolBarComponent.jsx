@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 10,
-    backgroundColor: "#f8f9fa",
+    backgroundColor: "#f0f2f4",
   },
   icon: {
     marginHorizontal: 5,

@@ -13,21 +13,23 @@ import {
   Image,
 } from "react-native";
 import { Avatar, Icon } from "react-native-elements";
+import { useNavigation } from "expo-router";
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
+  const navigation = useNavigation();
   const roles = [
     {
-      label: "role 1",
+      label: "CAD",
       value: "role 1",
     },
     {
-      label: "role 2",
+      label: "HRC",
       value: "role 2",
     },
     {
-      label: "role 3",
+      label: "IAF",
       value: "role 3",
     },
   ];
@@ -38,6 +40,11 @@ const DrawerNavigator = () => {
   const handleRoleSelection = (role) => {
     setSelectedRole(role);
     setModalVisible(false);
+  };
+
+  const redirectToLogin = () => {
+    setLogout(false);
+    navigation.navigate("LoginPage");
   };
 
   return (
@@ -131,7 +138,7 @@ const DrawerNavigator = () => {
               <Text style={{ fontSize: 20 }}>DARK MODE</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={redirectToLogin}>
             <View style={styles.logout}>
               <Icon name="log-out-sharp" type="ionicon" />
               <Text style={{ fontSize: 20 }}>Logout</Text>
@@ -161,6 +168,14 @@ const styles = StyleSheet.create({
     top: Platform.OS === "ios" ? 40 : 50,
     left: 0,
     right: 0,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   roleItem: {
     padding: 10,
@@ -185,6 +200,14 @@ const styles = StyleSheet.create({
     top: Platform.OS === "ios" ? 40 : 50,
     height: "15%",
     borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   logo: {
     width: 24,
