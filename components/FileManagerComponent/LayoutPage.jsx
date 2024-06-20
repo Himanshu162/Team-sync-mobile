@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FlatList,
   StyleSheet,
@@ -16,10 +16,43 @@ const files = [
 ];
 
 const LayoutPage = () => {
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [activeItemId, setActiveItemId] = useState(null);
+
+  const toggleItemSelection = (itemId) => {
+    if (selectedItems.includes(itemId)) {
+      setSelectedItems(selectedItems.filter((item) => item !== itemId));
+    } else {
+      setSelectedItems([...selectedItems, itemId]);
+    }
+  };
+
+  const handleLongPress = (itemId) => {
+    setActiveItemId(itemId);
+  };
+
   const renderItem = ({ item }) => {
     const isFolder = item.type === "folder";
+    const isSelected = selectedItems.includes(item.id);
+    const isActive = activeItemId === item.id;
+
     return (
-      <TouchableOpacity style={styles.item}>
+      <TouchableOpacity
+        style={styles.item}
+        onPress={() => toggleItemSelection(item.id)}
+        onLongPress={() => handleLongPress(item.id)}
+        delayLongPress={200} 
+      >
+        {isActive && (
+          <View style={styles.checkbox}>
+            {isSelected && (
+              <AntDesign name="checksquare" size={24} color="green" />
+            )}
+            {!isSelected && (
+              <AntDesign name="checksquareo" size={24} color="green" />
+            )}
+          </View>
+        )}
         <View style={styles.itemIcon}>
           {isFolder ? (
             <AntDesign name="folder1" size={24} color="blue" />
@@ -56,6 +89,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
     alignItems: "center",
+  },
+  checkbox: {
+    marginRight: 10,
   },
   itemIcon: {
     marginRight: 10,
