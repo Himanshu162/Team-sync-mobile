@@ -6,9 +6,9 @@ import LayoutTopBar from "../../components/LayoutTopbar/LayoutTopBar";
 const HomePage = () => {
   return (
     <>
-      <PersistLogin>
+      {/* <PersistLogin> */}
         <LayoutTopBar />
-      </PersistLogin>
+      {/* </PersistLogin> */}
     </>
   );
 };

@@ -219,6 +219,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 20,
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
   },
   box: {
     width: "100%",
@@ -307,10 +308,10 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: "flex-start",
   },
-  teamlogo:{
-    width:300,
-    height:40,
-    marginTop:30,
-    marginBottom:10
-  }
+  teamlogo: {
+    width: 300,
+    height: 40,
+    marginTop: 30,
+    marginBottom: 10,
+  },
 });
