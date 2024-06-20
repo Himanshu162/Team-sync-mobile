@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import { Avatar, Icon } from "react-native-elements";
 import { useNavigation } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Drawer = createDrawerNavigator();
 
@@ -44,6 +45,7 @@ const DrawerNavigator = () => {
 
   const redirectToLogin = () => {
     setLogout(false);
+    AsyncStorage.clear();
     navigation.navigate("LoginPage");
   };
 
@@ -59,10 +61,10 @@ const DrawerNavigator = () => {
           headerTintColor: "#fff",
           headerRight: () => (
             <View style={styles.rightItem}>
-              <Image
+              {/* <Image
                 source={require("../../assets/images/logooo.png")}
                 style={styles.drawerIcon}
-              />
+              /> */}
               <TouchableOpacity onPress={() => setModalVisible(true)}>
                 <Avatar
                   rounded

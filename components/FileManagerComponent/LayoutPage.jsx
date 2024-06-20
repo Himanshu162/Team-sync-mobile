@@ -13,6 +13,10 @@ const files = [
   { id: "2", name: "New Folder 1", type: "folder" },
   { id: "3", name: "Fibromyalgia.pdf", type: "file" },
   { id: "4", name: "Farmer protest 1.txt", type: "file" },
+  { id: "5", name: "Farmer protest 2.txt", type: "file" },
+  { id: "6", name: "Farmer protest 3.txt", type: "file" },
+  { id: "7", name: "Farmer protest 4.txt", type: "file" },
+  { id: "8", name: "Farmer protest 5.txt", type: "file" },
 ];
 
 const LayoutPage = () => {
@@ -25,6 +29,7 @@ const LayoutPage = () => {
     } else {
       setSelectedItems([...selectedItems, itemId]);
     }
+    setActiveItemId(null)
   };
 
   const handleLongPress = (itemId) => {
@@ -41,7 +46,7 @@ const LayoutPage = () => {
         style={styles.item}
         onPress={() => toggleItemSelection(item.id)}
         onLongPress={() => handleLongPress(item.id)}
-        delayLongPress={200} 
+        delayLongPress={200}
       >
         {isActive && (
           <View style={styles.checkbox}>
